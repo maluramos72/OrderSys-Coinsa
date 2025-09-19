@@ -1,0 +1,22 @@
+ID,name,basePrice,image,type
+100,Camiseta Básica,900,/imgs/Camiseta-basica1.png,camiseta
+200,Polo Blanca,600,/imgs/Polo-Blanca.png,polo
+201,Polo Amarilla,600,/imgs/Polo-Amarilla.png,polo
+202,Polo Azul,600,/imgs/Polo-Azul.png,polo
+203,Polo Lila,600,/imgs/Polo-Lila.png,polo
+204,Polo Morada,600,/imgs/Polo-Morada.png,polo
+205,Polo Naranja,600,/imgs/Polo-Naranja.png,polo
+206,Polo Negra,600,/imgs/Polo-Negra.png,polo
+207,Polo Rosa,600,/imgs/Polo-Rosa.png,polo
+208,Polo Verde,600,/imgs/Polo-Verde.png,polo
+300,Pantalón Beige,1200,/imgs/Pantalon-Beige.png,pantalon
+301,Pantalón Blanco,1200,/imgs/Pantalon-Blanco.png,pantalon
+302,Pantalón Café,1200,/imgs/Pantalon-Cafe.png,pantalon
+303,Pantalón Gris,1200,/imgs/Pantalon-Gris.png,pantalon
+304,Pantalón Hueso,1200,/imgs/Pantalon-Hueso.png,pantalon
+305,Pantalón Negro,1200,/imgs/Pantalon-Negro.png,pantalon
+306,Pantalón Olivo,1200,/imgs/Pantalon-Olivo.png,pantalon
+307,Pantalón Rojo,1200,/imgs/Pantalon-Rojo.png,pantalon
+400,Chamarra,2500,/imgs/Chamarra1.png,chamarra
+500,Sudadera Premium,1800,/imgs/Sudadera-premium1.png,sudadera
+600,Sudadera Básica,900,/imgs/Sudadera-basica1.png,sudadera
