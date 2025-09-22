@@ -159,6 +159,84 @@ app.get("/api/getOrders", async (req, res) => {
   }
 });
 
+// 📂 Endpoint para listar todas las órdenes disponibles
+const exceljs = require("exceljs");
+
+// Listar órdenes (solo nombres de archivo)
+app.get("/api/listOrders", (req, res) => {
+  try {
+    const files = fs.readdirSync(path.join(__dirname, "public", "orders", "db"));
+    const orderFiles = files.filter((f) => f.endsWith(".xlsx"));
+    res.json({ success: true, orders: orderFiles });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// Leer orden específica
+app.get("/api/getOrder/:id", async (req, res) => {
+  try {
+    const filePath = path.join(__dirname, "public", "orders", "db", `orderData-${req.params.id}.xlsx`);
+    if (!fs.existsSync(filePath)) {
+      return res.status(404).json({ success: false, error: "Orden no encontrada" });
+    }
+
+    const workbook = new exceljs.Workbook();
+    await workbook.xlsx.readFile(filePath);
+    const worksheet = workbook.getWorksheet("Orders");
+
+    const rows = worksheet.getSheetValues().slice(2); // quitar encabezados
+    const data = rows.map((row) => ({
+      id: row[1],
+      companyName: row[2],
+      contact: row[3],
+      phone: row[4],
+      email: row[5],
+      deliveryDate: row[6],
+      productName: row[7],
+      linkImg: row[8],
+      color: row[9],
+      size: row[10],
+      quantity: row[11],
+      basePrice: row[12],
+      subtotal: row[13],
+      status: row[14],
+    }));
+
+    res.json({ success: true, data });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// Actualizar estatus de una orden
+app.post("/api/updateOrderStatus", async (req, res) => {
+  const { orderId, status } = req.body;
+
+  try {
+    const filePath = path.join(__dirname, "public", "orders", "db", `orderData-${orderId}.xlsx`);
+    if (!fs.existsSync(filePath)) {
+      return res.status(404).json({ success: false, error: "Orden no encontrada" });
+    }
+
+    const workbook = new exceljs.Workbook();
+    await workbook.xlsx.readFile(filePath);
+    const worksheet = workbook.getWorksheet("Orders");
+
+    worksheet.eachRow((row, rowNumber) => {
+      if (rowNumber > 1) { // omitir encabezados
+        row.getCell("N").value = status; // columna "status"
+      }
+    });
+
+    await workbook.xlsx.writeFile(filePath);
+    res.json({ success: true, message: `Estatus de orden ${orderId} actualizado a ${status}` });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+
 app.listen(PORT, () => {
   console.log(`✅ Servidor backend corriendo en http://localhost:${PORT}`);
 });
