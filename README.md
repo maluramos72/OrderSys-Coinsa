@@ -88,14 +88,23 @@ npm start
 
 OrderSys-Coinsa/
 ├── backend/                # Servidor Node.js
+
 │   ├── server.js           # API principal
+
 │   ├── public/orders/db/   # Archivos de órdenes
+
 │   └── public/orders/imgs/ # Imágenes de productos de órdenes
+
 ├── src/
+
 │   ├── components/         # Componentes React
+
 │   └── order-management-system.tsx
+
 ├── public/                 # Archivos estáticos (CSV, imágenes base)
+
 └── README.md               # Este archivo
+
 
 ---
 
