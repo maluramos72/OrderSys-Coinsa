@@ -18,7 +18,7 @@ Asegúrate de tener instalado [Node.js] en tu sistema.
 1.  Clona el repositorio:
     ```bash
     git clone https://github.com/maluramos72/OrderSys-Coinsa.git
-    cd [nombre-del-repositorio]
+    cd OrderSys-Coinsa
     ```
 
 2.  Instala las dependencias del frontend:
