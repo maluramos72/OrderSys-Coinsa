@@ -1,5 +1,7 @@
 # OrderSys-Coinsa
 Un sistema de gestión de órdenes de producción para el sector textil, diseñado para optimizar el registro de pedidos, la personalización de productos y el seguimiento de pedidos.
+Sistema de gestión de órdenes con React (frontend) y Node.js + Express (backend).
+Permite crear órdenes, exportarlas con imágenes y productos, y administrarlas en un dashboard.
 ---
 
 ### Características 📋
@@ -10,13 +12,35 @@ Un sistema de gestión de órdenes de producción para el sector textil, diseña
 * **Generación de Archivos:** Exporta automáticamente los detalles de la orden a un archivo de Excel (`orderData.xlsx`) y guarda las vistas previas de los productos en formato PNG.
 
 ---
+### Requisitos previos 🚀
+
+1. Instalar Git
+
+    Descarga Git desde 👉 https://git-scm.com/download/win
+    
+    Ejecuta el instalador (deja todo por defecto, clic en "Next").
+    
+    Reinicia tu terminal (PowerShell o Git Bash).  / comando del sistema
+    
+    Verifica que está instalado:
+    
+    git --version
+
+2. Instalar Node.js
+
+    Descarga Node.js LTS desde 👉 https://nodejs.org/en/download
+    
+    Instálalo (deja la opción de agregar a PATH marcada).
+    
+    Verifica que está instalado:  / comando del sistema
+    
+    node -v
+    npm -v
 
 ### Requisitos de Instalación 🛠️
 
-Asegúrate de tener instalado [Node.js] en tu sistema.
-
 1.  Clona el repositorio:
-    ```bash
+    ```bash / comando del sistema
     git clone https://github.com/maluramos72/OrderSys-Coinsa.git
     cd OrderSys-Coinsa
     ```
@@ -34,27 +58,44 @@ Asegúrate de tener instalado [Node.js] en tu sistema.
 
 ---
 
-### Uso 🚀
+### Cómo correr el proyecto ▶️
 
-1.  Inicia el servidor backend:
-    ```bash
-    node server.js
-    ```
-2.  Inicia la aplicación frontend:
-    ```bash
-    npm start
-    ```
-3.  Abre tu navegador y navega a `http://localhost:3000`.
+Iniciar backend (API y guardado de órdenes):
+
+cd backend
+node server.js
+
+
+Debes ver:
+
+✅ Server escuchando en http://localhost:5000
+
+
+Iniciar frontend:
+En otra terminal:
+
+cd OrderSys-Coinsa
+npm start
+
+
+✅ El frontend abrirá en 👉 http://localhost:3000   
+
+▶️Aqui se trabajará con el dashboard
 
 ---
 
 ### Estructura del Proyecto 📂
 
--   `src/components/`: Contiene los componentes de React para la interfaz de usuario.
--   `src/components/db/`: Almacena la base de datos de productos y el archivo de órdenes.
--   `src/components/imgs/`: Guarda las imágenes de los productos.
--   `server.js`: El script del servidor (Node.js/Express) para manejar la lógica de negocio y guardar los archivos.
--   `package.json`: Lista las dependencias del proyecto.
+OrderSys-Coinsa/
+├── backend/                # Servidor Node.js
+│   ├── server.js           # API principal
+│   ├── public/orders/db/   # Archivos de órdenes
+│   └── public/orders/imgs/ # Imágenes de productos de órdenes
+├── src/
+│   ├── components/         # Componentes React
+│   └── order-management-system.tsx
+├── public/                 # Archivos estáticos (CSV, imágenes base)
+└── README.md               # Este archivo
 
 ---
 
